@@ -1,0 +1,16 @@
+header{
+    background: #6200EE;
+    width: 100%;
+    
+    .container{
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    h1{
+        color: #fff;
+        font-weight: 400;
+        font-size: 25px;
+    }
+}

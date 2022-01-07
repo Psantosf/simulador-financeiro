@@ -1,0 +1,47 @@
+.centered{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.between{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card{
+    padding-bottom: 2%;
+}
+mat-divider{
+    width: 96% !important;
+    margin: 0 2%;
+}
+mat-card-title,
+mat-card-content
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 0;
+    text-align: center;
+}
+mat-card-actions{
+    display: flex;
+    justify-content: center;
+}
+.pad-t-b{
+    padding-top: 2%;
+}
+button{
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+
+
+.logoFooter {
+    position: absolute;
+    right: 10px;
+  }

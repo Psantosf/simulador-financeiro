@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@300;400;500;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body { 
+ }
+
+ h1{
+ }
+body { margin: 0; font-family: Roboto, sans-serif;
+    font-weight: 400;}
+p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.container{
+    width: 96%;
+    margin:0 auto;
+}
+
+.container-form{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-form-field{
+    width: 32%;
+    margin: 10px 0.5%;
+}
+mat-divider{
+    width: 99%;
+    margin: 0 auto !important;
+}
+mat-card-actions{
+    width: 99%;
+    margin: 1.5% auto 0 !important;
+}
+.between{
+    display: flex !important;
+    justify-content: space-between;
+}

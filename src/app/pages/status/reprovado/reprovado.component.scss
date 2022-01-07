@@ -1,0 +1,51 @@
+
+mat-card{
+    padding-bottom: 2%;
+}
+mat-divider{
+}
+mat-card-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    img{
+        margin:50px 0 0;
+    }
+
+    .status{
+        color: #B73028;
+    }
+}
+mat-card-content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 0;
+    text-align: center;
+    p.feedback{
+        line-height: 30px;
+    }
+    ul{
+        margin-top: 20px;
+        list-style-position:inside;
+        li{
+            margin-top: 2px;
+        }
+    }
+}
+mat-card-actions{
+    display: flex;
+    justify-content: center;
+}
+.pad-t-b{
+    padding-top: 2%;
+}
+button{
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
