@@ -13,8 +13,8 @@ export class PersistDataService {
   
   proponente = this.proponenteSource.asObservable();
   imoveis = this.imovelSource.asObservable();
-  installments = this.passParcela.asObservable();
-  amount = this.passValorTotal.asObservable();
+  parcelas = this.passParcela.asObservable();
+  valorTotal = this.passValorTotal.asObservable();
   
   
   constructor() { }
@@ -27,12 +27,12 @@ export class PersistDataService {
     this.imovelSource.next(imoveis)
   }
   
-  getInstallments(installments: string) {
-    this.passParcela.next(installments)
+  getInstallments(parcelas: string) {
+    this.passParcela.next(parcelas)
   }
   
-  getAmount(amount: string) {
-    this.passValorTotal.next(amount)
+  getAmount(valorTotal: string) {
+    this.passValorTotal.next(valorTotal)
   }
   
   

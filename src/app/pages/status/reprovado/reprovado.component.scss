@@ -11,11 +11,12 @@ mat-card-header{
     text-align: center;
 
     img{
-        margin:50px 0 0;
+        margin:50px 0 20px;
     }
 
     .status{
         color: #B73028;
+        font-size: 35px;
     }
 }
 mat-card-content
@@ -24,16 +25,21 @@ mat-card-content
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1% 0;
+    padding: 2% 0 1%;
     text-align: center;
     p.feedback{
-        line-height: 30px;
+        line-height: 32px;
+        font-size: 22px;
+        font-weight: 500;
     }
     ul{
-        margin-top: 20px;
+        margin-top: 40px;
         list-style-position:inside;
         li{
             margin-top: 2px;
+            line-height: 32px;
+            font-size: 22px;
+            font-weight: 500;
         }
     }
 }

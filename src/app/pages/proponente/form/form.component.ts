@@ -18,6 +18,9 @@ export class FormComponent implements OnInit {
   imaskConfigCPF = {
     mask: '000.000.000-00'
   }
+  imaskConfigCEP = {
+    mask: '00000-000'
+  };
   imaskConfigPhone = {
     mask: '(00) 00000-0000'
   };

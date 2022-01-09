@@ -12,10 +12,10 @@ export class FormComponent implements OnInit {
   title: string = "Dados do imóvel";
   imoveisForm: FormGroup;
   imoveis;
-  installments: string = "";
-  amount: string = "";
+  parcelas: string = "";
+  valorTotal: string = "";
   validarNumeroParcelas: boolean = false;
-
+  parc: string = '';
 
   imaskConfig = {
     mask: Number,
@@ -40,27 +40,27 @@ export class FormComponent implements OnInit {
  
   createForm() {
     this.persistDataService.imoveis.subscribe(imoveis => this.imoveis = imoveis);
-    this.persistDataService.installments.subscribe(installments => this.installments = installments);
-    this.persistDataService.amount.subscribe(amount => this.amount = amount)
+    this.persistDataService.parcelas.subscribe(parcelas => this.parcelas = parcelas);
+    this.persistDataService.valorTotal.subscribe(valorTotal => this.valorTotal = valorTotal)
     
     this.imoveisForm = this.fb.group({
       tipoImoveis: ['', Validators.required],
       renda: ['', Validators.required],
       imoveis: ['', Validators.required],
-      entry: ['', [
+      valorEntrada: ['', [
           Validators.required
         ]
       ],
-      installments: [null, Validators.required],
+      parcelas: [null, Validators.required],
     });
   }
-  entrySum(event){
-    let valorEntrada = this.imoveisForm.controls['entry'].value;
+  valorEntradaSum(event){
+    let valorEntrada = this.imoveisForm.controls['valorEntrada'].value;
     console.log(valorEntrada);
   }
 
-  public validateNumber(event){
-    let NumeroParcelas = this.imoveisForm.controls['installments'].value;
+  validateNumber(){
+    let NumeroParcelas = this.imoveisForm.controls['parcelas'].value;
     if(NumeroParcelas > 360){
       this.validarNumeroParcelas = true;
     }else {
@@ -68,21 +68,46 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    let valorEntradaNum = this.imoveisForm.controls['entry'].value;
-    let valorImovelNum = this.imoveisForm.controls['imoveis'].value;
-    let rendaMensalMin = (this.imoveisForm.controls['renda'].value)*0.3;
-    let totalAprovado = valorImovelNum - valorEntradaNum;
-    let taxaAoAno: number = 0.08;
-    let parcelasNum: number = this.imoveisForm.controls['installments'].value;
-    let parcelaInicial = (totalAprovado * ((100 + (taxaAoAno * (parcelasNum / 12)))/100)) / parcelasNum;
-    this.installments = parcelaInicial.toString();
-    this.amount = totalAprovado.toString()
-    this.persistDataService.getInstallments(this.installments);
-    this.persistDataService.getAmount(this.amount)
+  private getValueEntrada(){
+    let valorEntrada:number = this.imoveisForm.controls['valorEntrada'].value;
+    return valorEntrada;
+  }
 
-    if (rendaMensalMin > parcelaInicial)
-      this.router.navigateByUrl('/status')
-      else this.router.navigateByUrl('/status/reprovado')
+  private getValueImovel(){
+    let valorImovel:number = this.imoveisForm.controls['imoveis'].value;
+    console.log(valorImovel);
+    return valorImovel;
+  }
+
+  private totalAprovado(){
+    let totalAprovado = this.getValueImovel() - this.getValueEntrada();
+    console.log('total', totalAprovado);
+    console.log('total', 5 - 2);
+    return totalAprovado;
+  }
+  onSubmit() {
+    this.getValueEntrada();
+    this.getValueImovel();
+    this.totalAprovado();
+    let rendaMensalMin = (this.imoveisForm.controls['renda'].value)*0.3;
+    
+    let taxaAoAno: number = 0.08;
+    let parcelasNum: number = this.imoveisForm.controls['parcelas'].value;
+    // let parcelaInicial = (totalAprovado * ((100 + (taxaAoAno * (parcelasNum / 12)))/100)) / parcelasNum;
+    // this.parcelas = parcelaInicial.toString();
+    // this.valorTotal = totalAprovado.toString()
+    this.persistDataService.getInstallments(this.parcelas);
+    this.persistDataService.getAmount(this.valorTotal)
+//  console.log(this.getValueEntrada());
+    // console.log(valorImovelNum);
+    // console.log(totalAprovado);
+    // console.log(taxaAoAno);
+    // console.log(parcelasNum);
+    // console.log(parcelaInicial);
+    // console.log(rendaMensalMin);
+    
+    // if (rendaMensalMin > parcelaInicial){
+    //   this.router.navigateByUrl('/status')
+    //  } else {this.router.navigateByUrl('/status/reprovado')}
   }
 }
