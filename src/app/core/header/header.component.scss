@@ -1,16 +1,9 @@
-header{
-    background: #6200EE;
-    width: 100%;
-    
-    .container{
-        height: 50px;
-        display: flex;
-        align-items: center;
-    }
-
+.toolbar{
     h1{
         color: #fff;
-        font-weight: 400;
-        font-size: 25px;
+        margin-left: 20px;
     }
+}
+mat-toolbar{
+    background-color: #6200EE;
 }

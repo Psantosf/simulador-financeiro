@@ -1,4 +1,4 @@
-<app-title [title]="title"></app-title>
+<app-title [title]="titulo"></app-title>
 <div class="container">
     <mat-card>
         <form  [formGroup]="imoveisForm" (ngSubmit)="onSubmit()">
@@ -12,6 +12,7 @@
                     <mat-hint>Preencha com o tipo de imóvel</mat-hint>
                     <mat-error *ngIf="imoveisForm.get('tipoImoveis').errors?.required">Preencha com o tipo de imóvel</mat-error>
                 </mat-form-field>
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Renda Mensal</mat-label>
                     <input formControlName="renda" [imask]="imaskConfig"  matInput required>
@@ -35,15 +36,18 @@
         
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Em quantas parcelas deseja parcelar</mat-label>
-                    <input type="number" min="1" max="360" formControlName="parcelas" matInput required  (blur)="validateNumber($event)">
+                    <input type="number" min="1" max="360" formControlName="parcelas" matInput required  (blur)="validarNumero($event)">
                     <mat-hint *ngIf="validarNumeroParcelas != true">Preencha com no máximo 360 parcelas</mat-hint><br>
                     <mat-error *ngIf="imoveisForm.get('parcelas').errors?.required">Preencha com no máximo 360 parcelas</mat-error>
                     <mat-hint *ngIf="validarNumeroParcelas === true">
                         <mat-error>O numero máximo de parcelas é 360 parcelas</mat-error>
                     </mat-hint>
                 </mat-form-field>
+
             </mat-card-content>
+
             <mat-divider></mat-divider>
+            
             <mat-card-actions class="between">
                     
                 <button mat-stroked-button color="primary" [routerLink]="['/proponente']">Voltar</button>

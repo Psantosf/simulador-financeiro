@@ -11,17 +11,19 @@ import { PersistDataService } from 'src/app/shared/service/persist-data.service'
 })
 export class FormComponent implements OnInit {
 
-  title: string = "Dados do proponente";
+  titulo: string = "Dados do proponente";
   proponenteForm: FormGroup;
   proponente: any;
 
   imaskConfigCPF = {
     mask: '000.000.000-00'
   }
+
   imaskConfigCEP = {
     mask: '00000-000'
   };
-  imaskConfigPhone = {
+
+  imaskConfigCelular = {
     mask: '(00) 00000-0000'
   };
 
@@ -71,7 +73,7 @@ export class FormComponent implements OnInit {
         this.proponente === {} ? null : 
         this.proponente.nascimento,[
           Validators.required,
-          Validate.ofLegalAge
+          Validate.maiorDeIdade
         ]
       ) ,
       cep: new FormControl(

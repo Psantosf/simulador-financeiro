@@ -1,7 +1,7 @@
 import { AbstractControl } from "@angular/forms";
 
 export class Validate {
-    static ofLegalAge(data: AbstractControl) {
+    static maiorDeIdade(data: AbstractControl) {
         if(data.value==null || data.value==undefined)
         {
             return null;
@@ -19,7 +19,6 @@ export class Validate {
         }
 
         return { minor: true};
-
     }
 
 }

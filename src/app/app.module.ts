@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './core/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgxMaskModule } from 'ngx-mask';
 
 const PagesModule = [
   HomeModule,

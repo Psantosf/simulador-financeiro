@@ -15,14 +15,13 @@ mat-card{
 }
 mat-divider{
     width: 96% !important;
-    margin: 0 2%;
+    margin: 0 2% !important;
 }
 mat-card-title,
 mat-card-content
 {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 1% 0;
     text-align: center;
 }
@@ -30,7 +29,9 @@ mat-card-actions{
     display: flex;
     justify-content: center;
 }
-.pad-t-b{
+
+/* PADDING TOP*/
+.pad-t{
     padding-top: 2%;
 }
 button{
@@ -39,9 +40,8 @@ button{
     letter-spacing: 2px;
 }
 
-
-
 .logoFooter {
     position: absolute;
     right: 10px;
+    bottom: 10px;
   }
