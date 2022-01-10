@@ -2,8 +2,11 @@
 mat-card{
     padding-bottom: 2%;
 }
+
 mat-divider{
-}
+    width: 50% !important;
+    margin: 0 25% !important;
+}   
 mat-card-header{
     display: flex;
     flex-direction: column;

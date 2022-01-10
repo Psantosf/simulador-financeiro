@@ -1,5 +1,5 @@
-<app-title [title]="titulo"></app-title>
-<div class="container">
+<app-title [title]="titulo" tabindex="3"></app-title>
+<main class="container">
     <mat-card>
         <form  [formGroup]="imoveisForm" (ngSubmit)="onSubmit()">
             <mat-card-content>
@@ -46,11 +46,11 @@
 
             </mat-card-content>
 
-            <mat-divider></mat-divider>
+            <mat-divider aria-hidden="true"></mat-divider>
             
             <mat-card-actions class="between">
                     
-                <button mat-stroked-button color="primary" [routerLink]="['/proponente']">Voltar</button>
+                <button mat-stroked-button color="primary" [routerLink]="['/proponente']">VOLTAR</button>
                 <div *ngIf="!imoveisForm.valid; else enabled">
                     <button  mat-button color="primary"  disabled="disabled">SIMULAR</button>
                 </div>
@@ -62,4 +62,4 @@
 
         </form>
     </mat-card>
-</div>
+</main>

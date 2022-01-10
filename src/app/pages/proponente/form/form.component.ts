@@ -87,7 +87,7 @@ export class FormComponent implements OnInit {
         this.proponente === {} ? null : 
         this.proponente.celular,[
           Validators.required,
-          Validators.minLength(11)
+          Validators.minLength(15)
         ]
       ),
     });

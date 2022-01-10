@@ -1,19 +1,19 @@
-<app-title [title]="titulo"></app-title>
-<div class="container">
+<app-title [title]="titulo" tabindex="3"></app-title>
+<main class="container">
     <mat-card>
-        <mat-card-title>
-            <h1>Conquiste o sonho da casa própria</h1>
+        <mat-card-title tabindex="4">
+            <h3>Conquiste o sonho da casa própria</h3>
         </mat-card-title>
-        <mat-divider></mat-divider>
-        <mat-card-content class="pad-t">
+        <mat-divider aria-hidden="true"   ></mat-divider>
+        <mat-card-content class="pad-t" tabindex="5">
             <p>Em apenas alguns passos fique mais perto de<br/>
             segurar as chaves :)</p>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" [routerLink]="['/proponente']">Simular financiamento</button>
+        <mat-card-actions  tabindex="6">
+          <button mat-raised-button color="primary" [routerLink]="['/proponente']" title="Simulador Financeiro">Simular financiamento</button>
         </mat-card-actions>
     </mat-card>
-</div>
+  </main>
 
 <footer aria-hidden="true">
   <img class="logoFooter" src="../../../assets/images/logo2x.png" alt="">

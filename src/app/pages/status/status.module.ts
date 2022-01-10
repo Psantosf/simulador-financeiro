@@ -13,6 +13,7 @@ import { AprovadoComponent } from './aprovado/aprovado.component';
     ReprovadoComponent,
   ],
   imports: [
+    CommonModule,
     StatusRoutingModule,
     SharedModule
   ]
