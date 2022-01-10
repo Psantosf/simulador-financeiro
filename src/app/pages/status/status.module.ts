@@ -1,5 +1,5 @@
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StatusRoutingModule } from './status-routing.module';
@@ -13,8 +13,15 @@ import { AprovadoComponent } from './aprovado/aprovado.component';
     ReprovadoComponent,
   ],
   imports: [
+    CommonModule,
     StatusRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "pt-BR"
+    }
+],
 })
 export class StatusModule { }

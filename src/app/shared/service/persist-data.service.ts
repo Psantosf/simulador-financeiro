@@ -19,6 +19,7 @@ export class PersistDataService {
   
   constructor() { }
     
+  //METODOS
   getProponente(proponente: Object) {
     this.proponenteSource.next(proponente)
   }

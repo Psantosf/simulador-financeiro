@@ -3,7 +3,7 @@ import { ImoveisModule } from './pages/imoveis/imoveis.module';
 import { ProponenteModule } from './pages/proponente/proponente.module';
 import { HomeModule } from './pages/home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,7 +32,12 @@ const PagesModule = [
   ],
   exports: [
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "pt-BR"
+    }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

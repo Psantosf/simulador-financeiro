@@ -22,7 +22,6 @@ export class AprovadoComponent implements OnInit {
    }
 
   ngOnInit() {
-    //this.subscription = this.persistDataService.parcelas.subscribe(retorno => console.log(retorno))
-  }
+    }
 
 }

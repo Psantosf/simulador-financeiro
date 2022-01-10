@@ -58,9 +58,10 @@ export class FormComponent implements OnInit {
       parcelas: [null, Validators.required],
     });
   }
+
+  //METODOS
   valorEntradaSum(event){
     let valorEntrada = this.imoveisForm.controls['valorEntrada'].value;
-    console.log(valorEntrada);
   }
 
   validarNumero(){
