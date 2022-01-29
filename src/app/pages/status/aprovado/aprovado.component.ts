@@ -1,6 +1,7 @@
 import { PersistDataService } from './../../../shared/service/persist-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aprovado',
@@ -14,15 +15,19 @@ export class AprovadoComponent implements OnInit {
   parcela!: string;
   valorTotal!: string;
 
-  constructor(private persistDataService: PersistDataService ) {
+  constructor(
+    private persistDataService: PersistDataService,
+    private router: Router) {
 
     this.persistDataService.parcelas.subscribe(parcela => this.parcela = parcela)
     this.persistDataService.valorTotal.subscribe(valorTotal => this.valorTotal = valorTotal)
 
    }
 
+   homePage() {
+    this.router.navigateByUrl("/");
+  }
   ngOnInit() {
-    //this.subscription = this.persistDataService.parcelas.subscribe(retorno => console.log(retorno))
   }
 
 }

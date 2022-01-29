@@ -23,11 +23,11 @@ export class FormComponent implements OnInit {
   imaskConfig = {
     mask: Number,
     scale: 2,
-    thousandSeparator: '.',
+    thousandSeparator: ' ',
     padFractionalZeros: true,
     normalizeZeros: true,
     radix: ',',
-    separator: 2, prefix:"R$ "
+    prefix:"R$ "
   };
 
   
@@ -42,6 +42,9 @@ export class FormComponent implements OnInit {
     this.createForm();
   }
  
+  pageProponente(){
+    this.router.navigateByUrl("/proponente");
+  }
   createForm() {
     this.persistDataService.imoveis.subscribe(imoveis => this.imoveis = imoveis);
     this.persistDataService.parcelas.subscribe(parcelas => this.parcelas = parcelas);
@@ -58,6 +61,10 @@ export class FormComponent implements OnInit {
       parcelas: [null, Validators.required],
     });
   }
+
+  getTipoImoveis(){
+    return this.imoveisForm.get('tipoImoveis');
+  }
   valorEntradaSum(event){
     let valorEntrada = this.imoveisForm.controls['valorEntrada'].value;
     console.log(valorEntrada);
@@ -72,22 +79,22 @@ export class FormComponent implements OnInit {
     }
   }
 
-  private getValueEntrada(){
+  getValueEntrada(){
     let valorEntrada = this.imoveisForm.controls['valorEntrada'].value;
     return parseFloat(valorEntrada);
   }
 
-  private getValueImovel(){
+  getValueImovel(){
     let valorImovel = this.imoveisForm.controls['imoveis'].value;
     return parseFloat(valorImovel);
   }
 
-  private totalAprovado(){
+  totalAprovado(){
      let totalAprovado = this.getValueImovel() - this.getValueEntrada();
     return totalAprovado;
   }
 
-  private rendaMinima(){
+  rendaMinima(){
     const porcentagem = 0.3;
     const rendaMensal = this.imoveisForm.controls['renda'].value;
     const value = parseFloat(rendaMensal) * porcentagem;
@@ -101,8 +108,9 @@ export class FormComponent implements OnInit {
     this.totalAprovado();
     this.rendaMinima();
 
-    let parcelasNum: number = this.imoveisForm.controls['parcelas'].value;
-    let parcelaInicial = (this.totalAprovado() * ((100 + (this.taxaAoAno * (parcelasNum / 12)))/100)) / parcelasNum;
+    let numParcelas: number = this.imoveisForm.controls['parcelas'].value;
+    let parcelaInicial = (this.totalAprovado() * ((100 + (this.taxaAoAno * (numParcelas / 12)))/100)) / numParcelas;
+
     this.parcelas = parcelaInicial.toString();
     this.valorTotal = this.totalAprovado().toString()
     this.persistDataService.getInstallments(this.parcelas);

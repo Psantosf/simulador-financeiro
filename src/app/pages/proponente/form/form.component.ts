@@ -36,7 +36,9 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.createForm();
   }
- 
+  homePage() {
+    this.router.navigateByUrl("/");
+  }
   createForm() {
     this.persistDataService.proponente.subscribe(proponente => this.proponente = proponente)
     this.proponenteForm = this.fb.group({
@@ -93,6 +95,9 @@ export class FormComponent implements OnInit {
     });
   }
 
+  getNome(){
+    return this.proponenteForm.get('nome');
+  }
   onSubmit() {
     this.persistDataService.getProponente(this.proponenteForm.value)
     this.router.navigateByUrl('/imoveis')
