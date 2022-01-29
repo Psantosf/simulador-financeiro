@@ -8,7 +8,7 @@ import { HomeComponent } from './home.component';
   declarations: [HomeComponent],
   imports: [
     SharedModule,
-    HomeRoutingModule
+    HomeRoutingModule,
   ]
 })
 export class HomeModule { }

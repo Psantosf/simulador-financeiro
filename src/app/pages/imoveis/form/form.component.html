@@ -10,6 +10,9 @@
                         <mat-option value="Comercial">Comercial</mat-option>
                     </mat-select>
                     <mat-hint>Preencha com o tipo de imóvel</mat-hint>
+                    <!-- <div *ngIf="!tipoImoveis?.valid && (tipoImoveis?.dirty || tipoImoveis?.touched">
+                        <mat-error [hidden]="!tipoImoveis.errors.required">Campo Obrigatório, preencha com o tipo de imóvel</mat-error>
+                        </div> -->
                     <mat-error *ngIf="imoveisForm.get('tipoImoveis').errors?.required">Preencha com o tipo de imóvel</mat-error>
                 </mat-form-field>
 
@@ -29,7 +32,7 @@
                 
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Valor da entrada</mat-label>
-                    <input [imask]="imaskConfig" formControlName="valorEntrada" matInput required>
+                    <input [imask]="imaskConfig" formControlName="valorEntrada" matInput required  prefix="R$ " mask="separator.2" thousandSeparator=".">
                     <mat-hint>Preencha com no minimo 20% do valor do imóvel</mat-hint>
                     <mat-error *ngIf="imoveisForm.get('valorEntrada').errors?.required">Preencha com no minimo 20% do valor do imóvel</mat-error>
                 </mat-form-field>
@@ -50,7 +53,7 @@
             
             <mat-card-actions class="between">
                     
-                <button mat-stroked-button color="primary" [routerLink]="['/proponente']">VOLTAR</button>
+                <button mat-stroked-button color="primary"  (click)="pageProponente()" >VOLTAR</button>
                 <div *ngIf="!imoveisForm.valid; else enabled">
                     <button  mat-button color="primary"  disabled="disabled">SIMULAR</button>
                 </div>

@@ -1,35 +1,26 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { TestBed, async } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./core/header/header.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
+import { HomeModule } from "./pages/home/home.module";
+import { ProponenteModule } from "./pages/proponente/proponente.module";
+import { ImoveisModule } from "./pages/imoveis/imoveis.module";
+import { StatusModule } from "./pages/status/status.module";
 
-describe('AppComponent', () => {
+describe("AppComponent", () => {
+  const PagesModule = [
+    HomeModule,
+    ProponenteModule,
+    ImoveisModule,
+    StatusModule,
+  ];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [PagesModule],
+      declarations: [AppComponent, HeaderComponent],
     }).compileComponents();
   }));
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'simulador-financeiro'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('simulador-financeiro');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('simulador-financeiro app is running!');
-  });
 });

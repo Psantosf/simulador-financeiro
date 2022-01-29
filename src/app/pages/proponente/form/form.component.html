@@ -1,17 +1,17 @@
 <app-title [title]="titulo" tabindex="3"></app-title>
 <main class="container">
     <mat-card>
-        <form  [formGroup]="proponenteForm"  (ngSubmit)="onSubmit()">
+        <form [formGroup]="proponenteForm" (ngSubmit)="onSubmit()">
             <mat-card-content>
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Nome completo</mat-label>
-                    <input formControlName="nome"  matInput required >
+                    <input formControlName="nome" matInput required>
                     <mat-hint>Preencha com seu nome completo</mat-hint>
                     <mat-error *ngIf="proponenteForm.get('nome').errors?.required">Campo é obrigatório</mat-error>
                     <mat-error *ngIf="proponenteForm.get('nome').errors?.minlength">Digite no minimo 3 caracteres</mat-error>
                     <mat-error *ngIf="proponenteForm.get('nome').errors?.pattern">Nome inválido, não deve conter números ou caracteres especiais</mat-error>
                 </mat-form-field>
-        
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Profissão</mat-label>
                     <input formControlName="profissao" matInput required>
@@ -19,33 +19,33 @@
                     <mat-error *ngIf="proponenteForm.get('profissao').errors?.required">Campo é obrigatório</mat-error>
                     <mat-error *ngIf="proponenteForm.get('profissao').errors?.minlength">Digite no minimo 3 caracteres</mat-error>
                 </mat-form-field>
-                
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>CPF</mat-label>
                     <input [imask]="imaskConfigCPF" formControlName="cpf" matInput required>
                     <mat-hint>Preencha com seu CPF</mat-hint>
                     <mat-error *ngIf="proponenteForm.get('cpf').errors?.required">Campo é obrigatório</mat-error>
                     <mat-error *ngIf="proponenteForm.get('cpf').errors?.minlength">Digite no minimo 11 caracteres</mat-error>
+
                 </mat-form-field>
 
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input formControlName="email" matInput required >
+                    <input formControlName="email" matInput required>
                     <mat-hint> Preencha com seu email</mat-hint>
                     <mat-error *ngIf="proponenteForm.get('email').errors?.required">Campo é obrigatório</mat-error>
                     <mat-error *ngIf="proponenteForm.get('email').errors?.email">Digite um email válido</mat-error>
                 </mat-form-field>
-        
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Data de nascimento</mat-label>
                     <input type="date" formControlName="nascimento" matInput required>
                     <mat-hint>Preencha com sua data de nascimento</mat-hint>
                     <mat-error *ngIf="proponenteForm.get('nascimento').errors?.required">Campo é obrigatório</mat-error>
-                    <mat-error *ngIf="proponenteForm.controls['nascimento'].hasError('minor')">
-                    Você precisa ter mais que 18 anos.
+                    <mat-error *ngIf="proponenteForm.controls['nascimento'].hasError('minor')">Você precisa ter mais que 18 anos.
                     </mat-error>
                 </mat-form-field>
-                
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>CEP</mat-label>
                     <input [imask]="imaskConfigCEP" formControlName="cep" matInput required>
@@ -53,7 +53,7 @@
                     <mat-error *ngIf="proponenteForm.get('cep').errors?.required">Campo é obrigatório</mat-error>
                     <mat-error *ngIf="proponenteForm.get('cep').errors?.minlength">Digite no minimo 8 caracteres</mat-error>
                 </mat-form-field>
-                
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Celular</mat-label>
                     <input [imask]="imaskConfigCelular" formControlName="celular" matInput required>
@@ -61,21 +61,21 @@
                     <mat-error *ngIf="proponenteForm.get('celular').errors?.required">Campo é obrigatório</mat-error>
                     <mat-error *ngIf="proponenteForm.get('celular').errors?.minlength">Digite no minimo 11 caracteres</mat-error>
                 </mat-form-field>
-                
-            
+
+
             </mat-card-content>
             <mat-divider aria-hidden="true"></mat-divider>
             <mat-card-actions class="between">
-                
-                <button mat-stroked-button color="primary" [routerLink]="['/']">CANCELAR</button>
+
+                <button mat-stroked-button color="primary" (click)="pageHome()">CANCELAR</button>
                 <div *ngIf="!proponenteForm.valid;else enabled">
                     <button mat-button color="primary" disabled="disabled">CONTINUAR</button>
                 </div>
-                
+
                 <ng-template #enabled>
                     <button mat-raised-button color="primary" type="submit">CONTINUAR</button>
                 </ng-template>
             </mat-card-actions>
         </form>
     </mat-card>
-</main >
+</main>
