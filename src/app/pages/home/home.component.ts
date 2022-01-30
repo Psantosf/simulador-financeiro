@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   titulo: string = "Tela inicial";
   
   constructor(private router: Router) {}

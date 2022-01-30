@@ -1,8 +1,11 @@
+import { MatCardModule, MatDividerModule } from "@angular/material";
+import { TitleComponent } from "./../../shared/components/title/title.component";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { SharedModule } from "src/app/shared/shared.module";
 import { HomeRoutingModule } from "./home-routing.module";
 
 import { HomeComponent } from "./home.component";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe("HomeComponent", () => {
   let component: HomeComponent;
@@ -10,8 +13,11 @@ describe("HomeComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent],
-      imports: [SharedModule, HomeRoutingModule],
+      imports: [
+        RouterTestingModule,
+        SharedModule
+      ],
+      declarations: [ HomeComponent ]
     }).compileComponents();
   }));
 
@@ -22,8 +28,6 @@ describe("HomeComponent", () => {
   });
 
   it("should create", () => {
-    const fixture = TestBed.createComponent(HomeComponent);
-    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

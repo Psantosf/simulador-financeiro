@@ -1,18 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { CommonModule } from "@angular/common";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { SharedModule } from "src/app/shared/shared.module";
+import { StatusRoutingModule } from "../status-routing.module";
 
-import { AprovadoComponent } from './aprovado.component';
+import { AprovadoComponent } from "./aprovado.component";
 
-describe('AprovadoComponent', () => {
+describe("AprovadoComponent", () => {
   let component: AprovadoComponent;
   let fixture: ComponentFixture<AprovadoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AprovadoComponent ],
-      imports: [SharedModule]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        CommonModule,
+        SharedModule
+      ],
+      declarations: [ AprovadoComponent ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,7 +27,7 @@ describe('AprovadoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

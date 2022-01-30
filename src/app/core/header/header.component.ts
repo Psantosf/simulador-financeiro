@@ -6,8 +6,11 @@ import { Router } from "@angular/router";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  ngOnInit() {}
+
+  private titulo: String = 'Simulador de financiamentos';
   constructor(private router: Router) {}
+  ngOnInit() {}
+
   homePage() {
     this.router.navigateByUrl("/");
   }

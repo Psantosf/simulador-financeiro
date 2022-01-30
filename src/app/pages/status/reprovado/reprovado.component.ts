@@ -13,7 +13,7 @@ export class ReprovadoComponent implements OnInit {
   ngOnInit() {
   }
 
-  homePage() {
+  pageHome() {
     this.router.navigateByUrl("/");
   }
 }

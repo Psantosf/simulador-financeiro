@@ -20,9 +20,8 @@ const PagesModule = [HomeModule, ProponenteModule, ImoveisModule, StatusModule];
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    PagesModule,
     MatToolbarModule,
-    RouterModule.forRoot([]),
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent],
