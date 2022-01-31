@@ -49,9 +49,10 @@ describe('HeaderComponent', () => {
     expect(el.textContent).toContain('Simulador de financiamentos');
   });
 
-  // it('Deve verificar a rota ao clicar no logotipo', () => {
-  //   spyOn(router, 'navigate');
-  //   expect(component.homePage).toHaveBeenCalledWith(['/']);
-  // })
-  
+  it('Deve verificar a rota ao clicar no logotipo ', () => {
+    spyOn(component, 'homePage');
+    el = fixture.debugElement.query(By.css('a')).nativeElement;
+    el.click();
+    expect(component.homePage).toHaveBeenCalledTimes(1);
+  });  
 });
