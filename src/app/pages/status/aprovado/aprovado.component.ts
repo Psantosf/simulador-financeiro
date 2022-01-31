@@ -26,8 +26,9 @@ export class AprovadoComponent implements OnInit {
     );
   }
 
+  ngOnInit() {}
+  
   pageHome() {
     this.router.navigateByUrl("/");
   }
-  ngOnInit() {}
 }

@@ -35,6 +35,7 @@ describe("FormComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FormComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
@@ -62,16 +63,59 @@ describe("FormComponent", () => {
   it("deve verificar se a função onSubmit() foi definida ", () => {
     expect(component.onSubmit).toBeDefined();
   });
+  
   it("deve chamar o metodo de onSubmit", () => {
     spyOn(component, "onSubmit");
     el = fixture.debugElement.query(By.css("button")).nativeElement;
     el.click();
     expect(component.onSubmit).toHaveBeenCalledTimes(1);
   });
+
   it("deve chamar o metodo de pageProponente", () => {
     spyOn(component, "pageProponente");
     el = fixture.debugElement.query(By.css("button")).nativeElement;
     el.click();
     expect(component.pageProponente).toHaveBeenCalledTimes(1);
   });
+  it('Validar se o formulário está inválido ou vazio', () => {
+    component.imoveisForm.controls.tipoImoveis.setValue('');
+    component.imoveisForm.controls.renda.setValue('');
+    component.imoveisForm.controls.imoveis.setValue('');
+    component.imoveisForm.controls.valorEntrada.setValue('');
+    component.imoveisForm.controls.parcelas.setValue('');
+    expect(component.imoveisForm.valid).toBeFalsy();
+  }); 
+
+  it('Validar campo tipoImoveis', () => {
+    const tipoImoveis = component.imoveisForm.controls.tipoImoveis;
+    expect(tipoImoveis.valid).toBeFalsy();
+    tipoImoveis.setValue('');
+    expect(tipoImoveis.hasError('required')).toBeTruthy();
+  });
+
+  it('Validar campo renda', () => {
+    const renda = component.imoveisForm.controls.renda;
+    expect(renda.valid).toBeFalsy();
+    renda.setValue('');
+    expect(renda.hasError('required')).toBeTruthy();
+  });
+  it('Validar campo imoveis', () => {
+    const imoveis = component.imoveisForm.controls.imoveis;
+    expect(imoveis.valid).toBeFalsy();
+    imoveis.setValue('');
+    expect(imoveis.hasError('required')).toBeTruthy();
+  });
+  it('Validar campo valorEntrada', () => {
+    const valorEntrada = component.imoveisForm.controls.valorEntrada;
+    expect(valorEntrada.valid).toBeFalsy();
+    valorEntrada.setValue('');
+    expect(valorEntrada.hasError('required')).toBeTruthy();
+  });
+  it('Validar campo valorEntrada', () => {
+    const parcelas = component.imoveisForm.controls.parcelas;
+    expect(parcelas.valid).toBeFalsy();
+    parcelas.setValue('');
+    expect(parcelas.hasError('required')).toBeTruthy();
+  });
+
 });
