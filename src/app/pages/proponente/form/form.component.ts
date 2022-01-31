@@ -36,7 +36,7 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.createForm();
   }
-  homePage() {
+  pageHome() {
     this.router.navigateByUrl("/");
   }
   createForm() {

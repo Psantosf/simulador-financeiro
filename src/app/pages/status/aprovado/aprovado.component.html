@@ -3,9 +3,9 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title tabindex="4">
-                <h2>Proposta Nº 00001</h2> 
+                <h2>Proposta Nº 00001</h2>
                 <img aria-hidden="true" src="../../../../assets/images/success.png" alt=""><br>
-                <p class="status">STATUS: APROVADO</p>   
+                <p class="status">STATUS: APROVADO</p>
             </mat-card-title>
         </mat-card-header>
         <mat-divider aria-hidden="true"></mat-divider>
@@ -20,7 +20,7 @@
             </ul>
         </mat-card-content>
         <mat-card-actions tabindex="6">
-             <button mat-raised-button color="primary" [routerLink]="['/']">IR PARA A TELA INICIAL</button>
-         </mat-card-actions>
+            <button mat-raised-button color="primary" (click)="pageHome()">IR PARA A TELA INICIAL</button>
+        </mat-card-actions>
     </mat-card>
 </main>

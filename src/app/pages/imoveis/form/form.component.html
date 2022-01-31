@@ -1,7 +1,7 @@
 <app-title [title]="titulo" tabindex="3"></app-title>
 <main class="container">
     <mat-card>
-        <form  [formGroup]="imoveisForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="imoveisForm" (ngSubmit)="onSubmit()">
             <mat-card-content>
                 <mat-form-field>
                     <mat-select formControlName="tipoImoveis" appear="fill">
@@ -18,28 +18,28 @@
 
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Renda Mensal</mat-label>
-                    <input formControlName="renda" [imask]="imaskConfig"  matInput required>
+                    <input formControlName="renda" [imask]="imaskConfig" matInput required>
                     <mat-hint>Preencha com sua renda mensal</mat-hint>
                     <mat-error *ngIf="imoveisForm.get('renda').errors?.required"> Preencha com sua renda mensal</mat-error>
                 </mat-form-field>
-        
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Valor do imóvel</mat-label>
                     <input [imask]="imaskConfig" formControlName="imoveis" matInput required>
                     <mat-hint> Preencha com valor do imóvel</mat-hint>
                     <mat-error *ngIf="imoveisForm.get('imoveis').errors?.required"> Preencha com valor do imóvel</mat-error>
                 </mat-form-field>
-                
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Valor da entrada</mat-label>
-                    <input [imask]="imaskConfig" formControlName="valorEntrada" matInput required  prefix="R$ " mask="separator.2" thousandSeparator=".">
+                    <input [imask]="imaskConfig" formControlName="valorEntrada" matInput required prefix="R$ " mask="separator.2" thousandSeparator=".">
                     <mat-hint>Preencha com no minimo 20% do valor do imóvel</mat-hint>
                     <mat-error *ngIf="imoveisForm.get('valorEntrada').errors?.required">Preencha com no minimo 20% do valor do imóvel</mat-error>
                 </mat-form-field>
-        
+
                 <mat-form-field hideRequiredMarker appearance="outline">
                     <mat-label>Em quantas parcelas deseja parcelar</mat-label>
-                    <input type="number" min="1" max="360" formControlName="parcelas" matInput required  (blur)="validarNumero($event)">
+                    <input type="number" min="1" max="360" formControlName="parcelas" matInput required (blur)="validarNumero($event)">
                     <mat-hint *ngIf="validarNumeroParcelas != true">Preencha com no máximo 360 parcelas</mat-hint><br>
                     <mat-error *ngIf="imoveisForm.get('parcelas').errors?.required">Preencha com no máximo 360 parcelas</mat-error>
                     <mat-hint *ngIf="validarNumeroParcelas === true">
@@ -50,12 +50,12 @@
             </mat-card-content>
 
             <mat-divider aria-hidden="true"></mat-divider>
-            
+
             <mat-card-actions class="between">
-                    
-                <button mat-stroked-button color="primary"  (click)="pageProponente()" >VOLTAR</button>
+
+                <button mat-stroked-button color="primary" (click)="pageProponente()">VOLTAR</button>
                 <div *ngIf="!imoveisForm.valid; else enabled">
-                    <button  mat-button color="primary"  disabled="disabled">SIMULAR</button>
+                    <button mat-button color="primary" disabled="disabled">SIMULAR</button>
                 </div>
                 <ng-template #enabled>
                     <button mat-raised-button color="primary" type="submit">SIMULAR</button>
