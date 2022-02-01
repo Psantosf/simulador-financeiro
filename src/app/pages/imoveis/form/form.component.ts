@@ -63,6 +63,7 @@ export class FormComponent implements OnInit {
     console.log(valorEntrada);
   }
 
+  // Validar se a parcela é maior que 360
   validarNumero(){
     let NumeroParcelas = this.imoveisForm.controls['parcelas'].value;
     if(NumeroParcelas > 360){
@@ -71,6 +72,7 @@ export class FormComponent implements OnInit {
       this.validarNumeroParcelas = false;
     }
   }
+
 
   private getValueEntrada(){
     let valorEntrada = this.imoveisForm.controls['valorEntrada'].value;
@@ -82,11 +84,13 @@ export class FormComponent implements OnInit {
     return parseFloat(valorImovel);
   }
 
+  // total aprovado deve ser o valor do imóvel menos o valor de entrada
   private totalAprovado(){
      let totalAprovado = this.getValueImovel() - this.getValueEntrada();
     return totalAprovado;
   }
 
+  // renda minima deve ser 30% do valor da renda mensal
   private rendaMinima(){
     const porcentagem = 0.3;
     const rendaMensal = this.imoveisForm.controls['renda'].value;
@@ -101,8 +105,11 @@ export class FormComponent implements OnInit {
     this.totalAprovado();
     this.rendaMinima();
 
+    //pegar numero de parcelas
     let parcelasNum: number = this.imoveisForm.controls['parcelas'].value;
+    // Calculo do valor Inicial
     let parcelaInicial = (this.totalAprovado() * ((100 + (this.taxaAoAno * (parcelasNum / 12)))/100)) / parcelasNum;
+    
     this.parcelas = parcelaInicial.toString();
     this.valorTotal = this.totalAprovado().toString()
     this.persistDataService.getInstallments(this.parcelas);
