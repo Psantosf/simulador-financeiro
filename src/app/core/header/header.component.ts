@@ -6,13 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   titulo: String = 'Simulador de financiamentos';
   logotipo: String = '../../../assets/images/logotipo.png';
   constructor(private router: Router) {}
-  ngOnInit() {}
-
-  homePage() {
-    this.router.navigateByUrl("/");
-  }
 }

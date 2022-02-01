@@ -5,11 +5,14 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { HomeComponent } from "./home.component";
 import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
+import { Router } from "@angular/router";
 
 describe("HomeComponent", () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let de: DebugElement;
+  let el: HTMLElement;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -45,8 +48,18 @@ describe("HomeComponent", () => {
     de = fixture.debugElement.query(By.css("mat-card-title"));
     expect(de.nativeElement).toBeDefined();
   });
+  
+  it("deve verificar se existe o mat-card-content", () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+    de = fixture.debugElement.query(By.css("mat-card-content"));
+    expect(de.nativeElement).toBeDefined();
+  });
 
-  it("deve verificar se a função pageProponente() foi definida ", () => {
-    expect(component.pageProponente).toBeDefined();
+  it("deve verificar se existe o mat-divider ", () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    fixture.detectChanges();
+    de = fixture.debugElement.query(By.css("mat-divider"));
+    expect(de.nativeElement).toBeDefined();
   });
 });

@@ -54,10 +54,4 @@ describe('ReprovadoComponent', () => {
     expect(de.nativeElement).toBeDefined();
   });
   
-  it("deve chamar o metodo de pageHome", () => {
-    spyOn(component, "pageHome");
-    el = fixture.debugElement.query(By.css("button")).nativeElement;
-    el.click();
-    expect(component.pageHome).toHaveBeenCalledTimes(1);
-  });
 });

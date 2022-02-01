@@ -6,13 +6,7 @@ import { Router } from "@angular/router";
   templateUrl: "./reprovado.component.html",
   styleUrls: ["./reprovado.component.scss"],
 })
-export class ReprovadoComponent implements OnInit {
+export class ReprovadoComponent {
   title: string = "Reprovado";
-  constructor(private router: Router) {}
-
-  ngOnInit() {}
-
-  pageHome() {
-    this.router.navigateByUrl("/");
-  }
+  constructor() {}
 }

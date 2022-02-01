@@ -9,11 +9,11 @@ import { PersistDataService } from 'src/app/shared/service/persist-data.service'
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent{
 
   titulo: string = "Dados do proponente";
   proponenteForm: FormGroup;
-  proponente: any;
+  proponente;
 
   imaskConfigCPF = {
     mask: '000.000.000-00'
@@ -31,14 +31,10 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
     private persistDataService : PersistDataService,
     private router: Router) 
-    {}
+    {
+      this.createForm();
+    }
 
-  ngOnInit() {
-    this.createForm();
-  }
-  pageHome() {
-    this.router.navigateByUrl("/");
-  }
   createForm() {
     this.persistDataService.proponente.subscribe(proponente => this.proponente = proponente)
     this.proponenteForm = this.fb.group({
@@ -95,9 +91,6 @@ export class FormComponent implements OnInit {
     });
   }
 
-  getNome(){
-    return this.proponenteForm.get('nome');
-  }
   onSubmit() {
     this.persistDataService.getProponente(this.proponenteForm.value)
     this.router.navigateByUrl('/imoveis')

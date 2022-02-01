@@ -35,8 +35,11 @@ describe('AprovadoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("deve verificar se o título da página é Aprovado", () => {
+  it("deve verificar variáveiso", () => {
     expect(component.titulo).toEqual("Aprovado");
+    expect(component.subscription).toBeUndefined();
+    expect(component.parcela).toEqual('');
+    expect(component.valorTotal).toEqual('');
   });
 
   it("deve verificar se existe o mat-card ", () => {
@@ -53,10 +56,4 @@ describe('AprovadoComponent', () => {
     expect(de.nativeElement).toBeDefined();
   });
   
-  it("deve chamar o metodo de onSubmit", () => {
-    spyOn(component, "pageHome");
-    el = fixture.debugElement.query(By.css("button")).nativeElement;
-    el.click();
-    expect(component.pageHome).toHaveBeenCalledTimes(1);
-  });
 });

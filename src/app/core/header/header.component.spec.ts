@@ -34,10 +34,6 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('deve verificar se a função HomePage() foi definida ', () => {
-    expect(component.homePage).toBeDefined();
-  });
-
   it('Deve verificar se existe Logotipo', () => {
     expect(component.logotipo).toEqual('../../../assets/images/logotipo.png');
   });
@@ -48,11 +44,4 @@ describe('HeaderComponent', () => {
     el = de.nativeElement;
     expect(el.textContent).toContain('Simulador de financiamentos');
   });
-
-  it('Deve verificar a rota ao clicar no logotipo ', () => {
-    spyOn(component, 'homePage');
-    el = fixture.debugElement.query(By.css('a')).nativeElement;
-    el.click();
-    expect(component.homePage).toHaveBeenCalledTimes(1);
-  });  
 });

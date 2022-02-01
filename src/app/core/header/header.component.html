@@ -1,5 +1,5 @@
 <mat-toolbar class="toolbar" color="primary">
-  <a (click)="homePage()">
+  <a [routerLink]="['/']">
     <img tabindex="1" [src]="logotipo" alt="VOLTAR PARA A TELA INICIAL" autoFocus>
   </a>
   <h1 tabindex="2">{{titulo}}</h1>
