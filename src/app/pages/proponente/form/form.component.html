@@ -61,13 +61,11 @@
                     <mat-error *ngIf="proponenteForm.get('celular').errors?.required">Campo é obrigatório</mat-error>
                     <mat-error *ngIf="proponenteForm.get('celular').errors?.minlength">Digite no minimo 11 caracteres</mat-error>
                 </mat-form-field>
-
-
             </mat-card-content>
             <mat-divider aria-hidden="true"></mat-divider>
             <mat-card-actions class="between">
 
-                <button mat-stroked-button color="primary" (click)="pageHome()">CANCELAR</button>
+                <button mat-stroked-button color="primary" [routerLink]="['/']">CANCELAR</button>
                 <div *ngIf="!proponenteForm.valid;else enabled">
                     <button mat-button color="primary" disabled="disabled">CONTINUAR</button>
                 </div>
